@@ -32,6 +32,7 @@
 		C96ACFBB28532A1B007CB6BE /* CreateEditMessageDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEditMessageDelegate.swift; sourceTree = "<group>"; };
 		C96ACFBD285331A7007CB6BE /* MessageCountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCountTableViewCell.swift; sourceTree = "<group>"; };
 		C96ACFBF285349B9007CB6BE /* VCMessageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCMessageExtension.swift; sourceTree = "<group>"; };
+		C96ACFC728535526007CB6BE /* BCCAppDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BCCAppDebug.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +65,7 @@
 		C96ACFA228532121007CB6BE /* BCCApp */ = {
 			isa = PBXGroup;
 			children = (
+				C96ACFC728535526007CB6BE /* BCCAppDebug.entitlements */,
 				C96ACFC628534E7F007CB6BE /* Protocols */,
 				C96ACFC528534E66007CB6BE /* Extensions */,
 				C96ACFC428534E4D007CB6BE /* ViewControllers */,
@@ -333,6 +335,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BCCApp/BCCAppDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4S56UDY42S;

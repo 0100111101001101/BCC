@@ -14,6 +14,7 @@ class AllMessagesTableViewController: UITableViewController, CreateEditMessageDe
     let NO_OF_SECTIONS = 2                                      // Initialising all the constants
     let ALL_MESSAGES_SECTION = 0
     let MESSAGE_COUNT_SECTION = 1
+    let APP_GROUP_NAME = "group.com.om.mandavia.bcc"
     
     var lastSelectedRowIndex = 0
     var isEditSegue = false                             // To differentiate edit/add functionality
@@ -31,9 +32,11 @@ class AllMessagesTableViewController: UITableViewController, CreateEditMessageDe
     
     override func viewWillAppear(_ animated: Bool) {
         // Updating the object data to make sure that it is up-to-date
-        allMessages = UserDefaults.standard.stringArray(forKey: "allMessages") ?? [String]()
+        allMessages = UserDefaults(suiteName: APP_GROUP_NAME)?.stringArray(forKey: "allMessages") ?? [String]()
         tableView.reloadData()
     }
+    
+    // MARK: - 
     
 
     // MARK: - Table view data source
@@ -105,7 +108,7 @@ class AllMessagesTableViewController: UITableViewController, CreateEditMessageDe
                 // deleting the data persistently & updating the table view
                 self.tableView.performBatchUpdates({
                     self.allMessages.remove(at: indexPath.row)
-                    UserDefaults.standard.set(self.allMessages, forKey: "allMessages")
+                    UserDefaults(suiteName: self.APP_GROUP_NAME)?.set(self.allMessages, forKey: "allMessages")
                     self.tableView.deleteRows(at: [indexPath], with: .fade)
                     self.tableView.reloadSections([self.MESSAGE_COUNT_SECTION], with: .automatic)
                     }, completion: nil)
@@ -138,7 +141,7 @@ class AllMessagesTableViewController: UITableViewController, CreateEditMessageDe
         } else {
             self.allMessages.append(newMessage)                                 // updating the object data based on flag value
         }
-        UserDefaults.standard.set(self.allMessages, forKey: "allMessages")      // persisting the changes
+        UserDefaults(suiteName: APP_GROUP_NAME)?.set(self.allMessages, forKey: "allMessages")      // persisting the changes
         self.tableView.reloadData()
     }
     
